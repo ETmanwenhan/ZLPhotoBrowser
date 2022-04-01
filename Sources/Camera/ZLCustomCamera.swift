@@ -669,7 +669,9 @@ open class ZLCustomCamera: UIViewController, CAAnimationDelegate {
                 if self.session.canAddInput(ni) {
                     self.session.addInput(ni)
                     self.videoInput = ni
-                    ni.device.videoZoomFactor = zoomFactor
+                    //ni.device.videoZoomFactor = zoomFactor
+                    // 解决iPhone 6上拍照切换摄像头崩溃问题
+                    self.setVideoZoomFactor(zoomFactor)
                 } else {
                     self.session.addInput(currInput)
                 }
